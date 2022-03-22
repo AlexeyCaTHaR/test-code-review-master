@@ -7,16 +7,21 @@ use App\Model;
 class DataStorage
 {
     /**
-     * @var \PDO 
+     * @var \PDO
      */
     public $pdo;
 
+    /**
+     * TODO move connection params to env or config
+     */
     public function __construct()
     {
         $this->pdo = new \PDO('mysql:dbname=task_tracker;host=127.0.0.1', 'user');
     }
 
     /**
+     * TODO missing return type declaration
+     * TODO change * in SQL-query to list of needed columns(unused created_at column)
      * @param int $projectId
      * @throws Model\NotFoundException
      */
@@ -32,6 +37,11 @@ class DataStorage
     }
 
     /**
+     * TODO missing $limit type
+     * TODO missing $offset type
+     * TODO missing return type declaration
+     * TODO change * in SQL-query to list of needed columns(unused status and created_at columns)
+     * TODO add `project_id` to prepared statement(execute comand)
      * @param int $project_id
      * @param int $limit
      * @param int $offset
@@ -50,6 +60,10 @@ class DataStorage
     }
 
     /**
+     * TODO missing $projectId type
+     * TODO missing return type declaration
+     * TODO SQL-injection can be used in sql query
+     * TODO determine $data['id'] by LAST_INSERT_ID()
      * @param array $data
      * @param int $projectId
      * @return Model\Task

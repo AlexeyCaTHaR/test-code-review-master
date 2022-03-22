@@ -7,5 +7,6 @@ class Application
     public function run()
     {
         // TODO: implement routes initialization, handle request, etc
+        // Where ???
     }
 }
